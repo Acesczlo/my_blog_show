@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="git安装对应软件Git 官网: GitSourcetree 官网: Sourcetree 对应网站Github 官网: GitHubGitee 官网: Gitee Git是什么？Git 是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。 GitHub 和 Gitee 是一种基于云的平台，可在其中存储、共享并与他人一起编写代码。 Gitee 也可以称之为是 Github 的“中">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git安装配置">
+<meta property="og:url" content="https://acesczlo.netlify.app/git%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:site_name" content="Acesczlo小站">
+<meta property="og:description" content="git安装对应软件Git 官网: GitSourcetree 官网: Sourcetree 对应网站Github 官网: GitHubGitee 官网: Gitee Git是什么？Git 是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。 GitHub 和 Gitee 是一种基于云的平台，可在其中存储、共享并与他人一起编写代码。 Gitee 也可以称之为是 Github 的“中">
+<meta property="og:locale">
+<meta property="og:image" content="https://acesczlo.netlify.app/404.jpg">
+<meta property="og:image" content="https://acesczlo.netlify.app/404.jpg">
+<meta property="og:image" content="https://acesczlo.netlify.app/404.jpg">
+<meta property="article:published_time" content="2025-02-21T07:46:31.000Z">
+<meta property="article:modified_time" content="2025-02-25T13:27:42.732Z">
+<meta property="article:author" content="Acesczlo">
+<meta property="article:tag" content="-git">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://acesczlo.netlify.app/404.jpg">
+
+
+<title >git安装配置</title>
+
+<!-- Favicon -->
+
+    <link href='/img/favicon.svg?v=2.2.4' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/img/favicon.svg?v=2.2.4' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+    <link href='/img/favicon.svg?v=2.2.4' rel='apple-touch-icon' sizes='180x180' ></link>
+
+
+    <link href='/site.webmanifest' rel='manifest' ></link>
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://npm.elemecdn.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"acesczlo.netlify.app","author":"Acesczlo","root":"/","typed_text":["Developer"],"theme_version":"2.2.4","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"/img/favicon.svg","icon16":"/img/favicon.svg","icon32":"/img/favicon.svg","apple_touch_icon":"/img/favicon.svg","webmanifest":"/site.webmanifest","visibilitychange":true,"hidden":"failure.ico","show_text":"(/≧▽≦/)咦！又好了！","hide_text":"(●—●)喔哟，崩溃啦！"},"i18n":{"placeholder":"搜索文章...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","sticky":"置顶","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://npm.elemecdn.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":false,"title":"default","height_limit":200},"toc":{"post_title":false},"live_time":{"start_time":"02/25/2025 17:00:00","prefix":"博客已萌萌哒运行 undefined 天"},"danmu":{"enable":false,"el":".trm-banner"}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2025-02-25 21:27:42"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.2.4" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+
+ 
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" style="opacity: 0">
+            <!-- top bar -->
+            <header class="trm-top-bar">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/img/favicon.svg">
+    
+    
+        <div class="trm-logo-text">
+            Ace<span>sczlo</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    home
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/archives/" target="">
+                    archives
+                </a>
+                
+                <ul>
+                    
+                    <li>
+                        <a  href="/categories/" target="">
+                            categories
+                        </a>
+                    </li>
+                    
+                </ul>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/tags/" target="">
+                    tag
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/about/" target="">
+                    about
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="/img/banner.png">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            NEWS LETTER
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            git安装配置
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        git安装配置
+                                    </span>
+                                </li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <span id="scroll-triger" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </span>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div class="trm-page-sidebar col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    <div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card"> 
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/img/avatar.png">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        Acesczlo
+    </h5>
+    
+        <div class="trm-label">
+            I`m
+            <span class="trm-typed-text">
+                <!-- Words for theme.user.typedText -->
+            </span>
+        </div>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<div class="trm-social">
+    
+        <a href="https://github.com" title="github" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-github"></i>
+        </a>
+    
+        <a href="https://gitee.com" title="gitee" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-gofore"></i>
+        </a>
+    
+</div>
+
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                say:
+            </div>
+            <div class="trm-label trm-label-light">
+                Hello
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                age:
+            </div>
+            <div class="trm-label trm-label-light">
+                18
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:Acesczlo@outlook.com" class="trm-btn">
+            联系我
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div class="trm-page-content col-lg-8">
+                <div id="trm-content" class="trm-content">
+                    <div class="trm-post-info row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            02/21
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            15:46
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Acesczlo
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <h2 id="git安装"><a href="#git安装" class="headerlink" title="git安装"></a>git安装</h2><h3 id="对应软件"><a href="#对应软件" class="headerlink" title="对应软件"></a>对应软件</h3><p>Git 官网: <a href="%5BGit%5D(https://git-scm.com/)">Git</a><br>Sourcetree 官网: <a target="_blank" rel="noopener" href="https://www.sourcetreeapp.com/">Sourcetree</a></p>
+<h3 id="对应网站"><a href="#对应网站" class="headerlink" title="对应网站"></a>对应网站</h3><p>Github 官网: <a href="%5Bgithub.com%5D(https://github.com/)">GitHub</a><br>Gitee 官网: <a target="_blank" rel="noopener" href="https://gitee.com/">Gitee</a></p>
+<h2 id="Git是什么？"><a href="#Git是什么？" class="headerlink" title="Git是什么？"></a>Git是什么？</h2><p><em>Git 是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。</em></p>
+<p>GitHub 和 Gitee 是一种基于云的平台，可在其中存储、共享并与他人一起编写代码。</p>
+<p>Gitee 也可以称之为是 Github 的“中国版本”</p>
+<h2 id="Git安装配置"><a href="#Git安装配置" class="headerlink" title="Git安装配置"></a>Git安装配置</h2><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>在进入Git下载界面后，Windows系统选择Windows选项</p>
+<p><img src="https://raw.githubusercontent.com/Acesczlo/My_blog_Pic/main/20250221175058824.png" alt="image-20250221161554665"  data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/404.jpg"'></p>
+<p>点击 Click here to download，进行下载</p>
+<p><img src="https://raw.githubusercontent.com/Acesczlo/My_blog_Pic/main/20250221175156630.png" alt="image-20250221161748027"  data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/404.jpg"'></p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>在下载完成后，点击安装包安装即可，可以自己选择安装路径，剩下一路Next就好。</p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p><strong>配置SSH链接</strong></p>
+<p>SSH全称secure shell，是一个计算机网络协议（默认端口号为22）。通过ssh协议可以在客户端<strong>安全</strong>（提供身份认证、信息加密）的<strong>远程连接</strong>LInux服务器或其他设备。</p>
+<p>在这里SSH 允许在安全连接远程仓库，并省去每次推送或拉取代码时输⼊密码的⿇烦。  </p>
+<ol>
+<li>配置个人信息</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;名字&quot;</span><br><span class="line">git config --global user.email &quot;邮箱&quot;</span><br></pre></td></tr></table></figure>
+
+<p>​	检查已有的配置信息，可以使用 <strong>git config –list</strong> 命令</p>
+<ol start="2">
+<li>生成SSH密钥</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;邮箱&quot;</span><br></pre></td></tr></table></figure>
+
+<p>​	密钥文件存放的位置默认是C:\Users\当前用户名.ssh</p>
+<p><img src="https://raw.githubusercontent.com/Acesczlo/My_blog_Pic/main/20250221175203923.png" alt="image-20250221163237548"  data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/404.jpg"'></p>
+<p>​	打开id_rsa.pub文件，将中的公钥添加到GitHub管理平台中</p>
+<p>​	GitHub：<br>​	进⼊ Settings &gt; SSH and GPG keys &gt; New SSH key，粘贴公钥并保存。<br>​	Gitee：<br>​	进⼊ 设置 &gt; 安全设置 &gt; SSH 公钥，粘贴公钥并保存。  </p>
+<ol start="3">
+<li><p>测试连接</p>
+<p>测试Github:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
+<p>测试Gitee：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@gitee.com</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>在你的代码文件夹中，右键打开终端，输入:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+
+<p>创建一个仓库，可以发现当前目录下多了一个.git的目录，这个目录是Git来跟踪管理版本库的，千万不要手动修改这个目录里的文件。</p>
+<p>在写完代码之后，终端输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
+
+<p>可以暂存文件，“.”表示添加所有修改的文件，也可以将”.”改为你要添加的文件名</p>
+<p>接下来将暂存的文件提交到本地仓库，终端输入 ：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &quot;提交说明&quot;</span><br></pre></td></tr></table></figure>
+
+<p>在 GitHub 或者 Gitee 建好仓库后，按指令绑定仓库，终端输入:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin &quot;地址&quot;</span><br></pre></td></tr></table></figure>
+
+<p>接着输入:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin &quot;分支名&quot;    //推送当前分支到远程仓库，并与远程分支合并</span><br></pre></td></tr></table></figure>
+
+<p>把本地代码同步上传到远程仓库</p>
+<h3 id="Sourcetree使用"><a href="#Sourcetree使用" class="headerlink" title="Sourcetree使用"></a>Sourcetree使用</h3><p>下载安装后，配置SSH，添加本地仓库即可使用，就不介绍了。&gt;_&lt;</p>
+<p>最后，感谢bilibili<a target="_blank" rel="noopener" href="https://space.bilibili.com/27619688">左-岚</a>的大学生扫盲课讲解</p>
+
+</article>
+    
+    
+
+<ul class="trm-post-copyright">
+    <li class="trm-post-copyright-author">
+        <strong>本文作者：</strong>
+        Acesczlo
+    </li>
+    <li class="trm-post-copyright-link">
+        <strong>本文链接：</strong>
+        <a id="original-link" href="https://acesczlo.netlify.app/git安装配置/" title="git安装配置">https://acesczlo.netlify.app/git安装配置/</a>
+    </li>
+    <li class="trm-post-copyright-license">
+        <strong>版权声明：</strong>
+        本博客所有文章除特别声明外，均默认采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 ">CC BY-NC-SA 4.0</a> 许可协议。
+    </li>
+</ul>
+
+
+</div>
+<div class="trm-post-next-prev row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            其他文章
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+    
+</div>
+
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-footer-card trm-scroll-animation">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v7.3.0
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                主题 - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.2.4
+            </span>
+        </div>
+      
+
+    
+        <div class="trm-footer-item blog-run-long"></div>
+     
+
+     
+</footer>
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            
+
+    <div id="post-toc" class="trm-post-toc">
+      <div class="trm-post-toc-header">
+        目录导航
+				<span id="post-toc-top">
+					置顶
+				</span>
+      </div>
+      <div class="trm-post-toc-content">
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-2" title="git安装"><a rel="nofollow" class="trm-toc-link" href="#git安装"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">git安装</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="对应软件"><a rel="nofollow" class="trm-toc-link" href="#对应软件"><span class="trm-toc-number">1.1.</span> <span class="trm-toc-text">对应软件</span></a></li><li class="trm-toc-item trm-toc-level-3" title="对应网站"><a rel="nofollow" class="trm-toc-link" href="#对应网站"><span class="trm-toc-number">1.2.</span> <span class="trm-toc-text">对应网站</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-2" title="Git是什么？"><a rel="nofollow" class="trm-toc-link" href="#Git是什么？"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">Git是什么？</span></a></li><li class="trm-toc-item trm-toc-level-2" title="Git安装配置"><a rel="nofollow" class="trm-toc-link" href="#Git安装配置"><span class="trm-toc-number">3.</span> <span class="trm-toc-text">Git安装配置</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="下载"><a rel="nofollow" class="trm-toc-link" href="#下载"><span class="trm-toc-number">3.1.</span> <span class="trm-toc-text">下载</span></a></li><li class="trm-toc-item trm-toc-level-3" title="安装"><a rel="nofollow" class="trm-toc-link" href="#安装"><span class="trm-toc-number">3.2.</span> <span class="trm-toc-text">安装</span></a></li><li class="trm-toc-item trm-toc-level-3" title="配置"><a rel="nofollow" class="trm-toc-link" href="#配置"><span class="trm-toc-number">3.3.</span> <span class="trm-toc-text">配置</span></a></li><li class="trm-toc-item trm-toc-level-3" title="使用"><a rel="nofollow" class="trm-toc-link" href="#使用"><span class="trm-toc-number">3.4.</span> <span class="trm-toc-text">使用</span></a></li><li class="trm-toc-item trm-toc-level-3" title="Sourcetree使用"><a rel="nofollow" class="trm-toc-link" href="#Sourcetree使用"><span class="trm-toc-number">3.5.</span> <span class="trm-toc-text">Sourcetree使用</span></a></li></ol></li></ol>
+      </div>
+    </div>
+
+            
+<div class="trm-fixed-container">
+    
+        <div class="trm-fixed-btn post-toc-btn" data-title="目录">
+            <i class="iconfont fas fa-th-list"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="阅读模式" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="回到顶部">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+  </div>
+  <!-- app wrapper end -->
+
+  
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://npm.elemecdn.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+        <script src="/js/plugins/typing.js?v=2.2.4"></script>
+    
+
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+		
+
+
+
+
+    <!-- Service Worker -->
+    
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=2.2.4"></script>
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+</body>
+
+</html>
