@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="中断系统 中断：中断是指计算机运行过程中，出现特定的中断触发条件（中断源），机器能自动停止正在运行的程序并转入处理新情况的程序，处理完毕后又返回原被暂停的程序继续运行。  中断优先级：当有多个中断源同时申请中断时，CPU会根据中断源的轻重缓急进行裁决，优先响应更加紧急的中断源  中断嵌套：当一个中断程序正在运行时，又有新的更高优先级的中断源申请中断，CPU再次暂停当前中断程序，转而去处理新的中断程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="STM32入门(三)">
+<meta property="og:url" content="https://acesczlo.netlify.app/STM32%E5%85%A5%E9%97%A8-%E4%B8%89/index.html">
+<meta property="og:site_name" content="Acesczlo小站">
+<meta property="og:description" content="中断系统 中断：中断是指计算机运行过程中，出现特定的中断触发条件（中断源），机器能自动停止正在运行的程序并转入处理新情况的程序，处理完毕后又返回原被暂停的程序继续运行。  中断优先级：当有多个中断源同时申请中断时，CPU会根据中断源的轻重缓急进行裁决，优先响应更加紧急的中断源  中断嵌套：当一个中断程序正在运行时，又有新的更高优先级的中断源申请中断，CPU再次暂停当前中断程序，转而去处理新的中断程">
+<meta property="og:locale">
+<meta property="og:image" content="https://acesczlo.netlify.app/404.jpg">
+<meta property="article:published_time" content="2025-04-20T03:22:03.000Z">
+<meta property="article:modified_time" content="2025-04-20T07:21:11.243Z">
+<meta property="article:author" content="Acesczlo">
+<meta property="article:tag" content="-stm32">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://acesczlo.netlify.app/404.jpg">
+
+
+<title >STM32入门(三)</title>
+
+<!-- Favicon -->
+
+    <link href='/img/favicon.svg?v=2.2.4' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/img/favicon.svg?v=2.2.4' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+    <link href='/img/favicon.svg?v=2.2.4' rel='apple-touch-icon' sizes='180x180' ></link>
+
+
+    <link href='/site.webmanifest' rel='manifest' ></link>
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://npm.elemecdn.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"acesczlo.netlify.app","author":"Acesczlo","root":"/","typed_text":["Developer"],"theme_version":"2.2.4","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"/img/favicon.svg","icon16":"/img/favicon.svg","icon32":"/img/favicon.svg","apple_touch_icon":"/img/favicon.svg","webmanifest":"/site.webmanifest","visibilitychange":true,"hidden":"failure.ico","show_text":"(/≧▽≦/)咦！又好了！","hide_text":"(●—●)喔哟，崩溃啦！"},"i18n":{"placeholder":"搜索文章...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","sticky":"置顶","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://npm.elemecdn.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":false,"title":"default","height_limit":200},"toc":{"post_title":false},"live_time":{"start_time":"02/25/2025 17:00:00","prefix":"博客已萌萌哒运行 undefined 天"},"danmu":{"enable":false,"el":".trm-banner"}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2025-04-20 15:21:11"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.2.4" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+
+ 
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" style="opacity: 0">
+            <!-- top bar -->
+            <header class="trm-top-bar">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/img/favicon.svg">
+    
+    
+        <div class="trm-logo-text">
+            Ace<span>sczlo</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    home
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/archives/" target="">
+                    archives
+                </a>
+                
+                <ul>
+                    
+                    <li>
+                        <a  href="/categories/" target="">
+                            categories
+                        </a>
+                    </li>
+                    
+                </ul>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/tags/" target="">
+                    tag
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/about/" target="">
+                    about
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="/img/banner.png">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            NEWS LETTER
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            STM32入门(三)
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        STM32入门-三
+                                    </span>
+                                </li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <span id="scroll-triger" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </span>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div class="trm-page-sidebar col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    <div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card"> 
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/img/avatar.png">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        Acesczlo
+    </h5>
+    
+        <div class="trm-label">
+            I`m
+            <span class="trm-typed-text">
+                <!-- Words for theme.user.typedText -->
+            </span>
+        </div>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<div class="trm-social">
+    
+        <a href="https://github.com" title="github" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-github"></i>
+        </a>
+    
+        <a href="https://gitee.com" title="gitee" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-gofore"></i>
+        </a>
+    
+</div>
+
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                say:
+            </div>
+            <div class="trm-label trm-label-light">
+                Hello
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                age:
+            </div>
+            <div class="trm-label trm-label-light">
+                18
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:Acesczlo@outlook.com" class="trm-btn">
+            联系我
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div class="trm-page-content col-lg-8">
+                <div id="trm-content" class="trm-content">
+                    <div class="trm-post-info row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            04/20
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            11:22
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Acesczlo
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <h2 id="中断系统"><a href="#中断系统" class="headerlink" title="中断系统"></a>中断系统</h2><ul>
+<li><p>中断：中断是指计算机运行过程中，出现特定的中断触发条件（中断源），机器能自动停止正在运行的程序并转入处理新情况的程序，处理完毕后又返回原被暂停的程序继续运行。</p>
+</li>
+<li><p>中断优先级：当有多个中断源同时申请中断时，CPU会根据中断源的轻重缓急进行裁决，优先响应更加紧急的中断源</p>
+</li>
+<li><p>中断嵌套：当一个中断程序正在运行时，又有新的更高优先级的中断源申请中断，CPU再次暂停当前中断程序，转而去处理新的中断程序，处理完成后依次进行返回</p>
+</li>
+</ul>
+<h2 id="STM32中断"><a href="#STM32中断" class="headerlink" title="STM32中断"></a>STM32中断</h2><ul>
+<li><p>68个可屏蔽中断通道，包含EXTI、TIM、ADC、USART、SPI、I2C、RTC等多个外设</p>
+</li>
+<li><p>使用NVIC（嵌套向量中断控制器）统一管理中断，每个中断通道都拥有16个可编程的优先等级，可对优先级进行分组，进一步设置抢占优先级和响应优先级</p>
+</li>
+</ul>
+<h2 id="NVIC"><a href="#NVIC" class="headerlink" title="NVIC"></a>NVIC</h2><ul>
+<li><strong>抢占优先级</strong>：<strong>抢占</strong>**&emsp;编号越低优先级越高，即 “0”的优先级最高。</li>
+<li><strong>响应优先级</strong>：同时<strong>“到达”</strong></li>
+</ul>
+<p>NVIC（Nested Vectored Interrupt Controller，嵌套向量中断控制器）是 STM32 中的中断控制器，其基本功能包括中断优先级分组、中断优先级配置、中断使能&#x2F;禁止、中断请求标志读取与清除等，它控制着 [STM32 中断向量表](<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=STM32">https://so.csdn.net/so/search?q=STM32</a> 中断向量表&amp;spm&#x3D;1001.2101.3001.7020)中的中断相关功能。</p>
+<p>每个中断通道都拥有16个可编程的优先等级，为了把优先级再区分为抢占优先级和响应优先级，就需要对这16个优先级进行分组</p>
+<p><img src="https://raw.githubusercontent.com/Acesczlo/My_blog_Pic/main/20250420121448135.png" alt="56eea93115ac4935a82c97bb62065300"  data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/404.jpg"'></p>
+<h2 id="EXTI"><a href="#EXTI" class="headerlink" title="EXTI"></a>EXTI</h2><p>EXTI（Extern Interrupt）—外部中断&#x2F;事件控制器。每个中断&#x2F;事件线都对应有一个边沿检测器，可以实现输入信号的上升沿检测和下降沿的检测。</p>
+<ul>
+<li><p>EXTI可以监测指定GPIO口的电平信号，当其指定的GPIO口产生电平变化时，EXTI将立即向NVIC发出中断申请，经过NVIC裁决后即可中断CPU主程序，使CPU执行EXTI对应的中断程序</p>
+</li>
+<li><p>支持所有GPIO口，但相同的Pin不能同时触发中断</p>
+</li>
+<li><p>EXTI有 20个中断&#x2F;事件线，每个 GPIO都可以被设置为输入线，占用 EXTI0至 EXTI15，还有4根特定外设中断&#x2F;事件线由外设触发。</p>
+</li>
+<li><p>触发方式：上升沿&#x2F;下降沿&#x2F;双边沿&#x2F;软件触发</p>
+</li>
+</ul>
+<h2 id="AFIO"><a href="#AFIO" class="headerlink" title="AFIO"></a>AFIO</h2><ul>
+<li>AFIO主要用于引脚复用功能的选择和重定义</li>
+<li>在STM32中，AFIO主要完成两个任务：复用功能引脚重映射、中断引脚选择</li>
+</ul>
+<h2 id="配置外部中断"><a href="#配置外部中断" class="headerlink" title="配置外部中断"></a>配置外部中断</h2><p>第一步，配置RCC开启时钟。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//RCC开启GPIO时钟</span><br><span class="line">RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB,ENABLE);</span><br><span class="line">//RCC开启AFIO时钟</span><br><span class="line">RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO,ENABLE);</span><br></pre></td></tr></table></figure>
+
+<p>第二步，配置GPIO。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//配置GPIO，选择端口为输入模式</span><br><span class="line">GPIO_InitTypeDef GPIO_InitStructure;</span><br><span class="line">GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;</span><br><span class="line">GPIO_InitStructure.GPIO_Pin = GPIO_Pin_14;</span><br><span class="line">GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;</span><br><span class="line">GPIO_Init(GPIOB,&amp;GPIO_InitStructure);</span><br></pre></td></tr></table></figure>
+
+<p>第三步，配置AFIO，配置AFIO数据选择器，选择我们想要的中断引脚 。</p>
+<p>首先介绍几个函数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">* 进行引脚重映射，更改指定引脚的映射。 </span><br><span class="line">* 参数1 GPIO_Remap:选择要重新映射的引脚。</span><br><span class="line">* 参数2 NewState:端口引脚映射的新状态。取值为:ENABLE或DISABLE。</span><br><span class="line">* 返回值：无</span><br><span class="line">*/</span><br><span class="line">void GPIO_PinRemapConfig(uint32_t GPIO_Remap, FunctionalState NewState);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">* 选择用作EXTI线的GPIO引脚,即配置AFIO的数据选择器</span><br><span class="line">* 参数1 GPIO_PortSource:选择要用作EXTI线路源的GPIO端口。</span><br><span class="line">* 参数2 GPIO_PinSource:要配置的EXTI线路。</span><br><span class="line">* 返回值：无</span><br><span class="line">*/</span><br><span class="line">void GPIO_EXTILineConfig(uint8_t GPIO_PortSource, uint8_t GPIO_PinSource);</span><br></pre></td></tr></table></figure>
+
+<p>我们用的是PB14号口，所以选择GPIO_PortSourceGPIOB和GPIO_PinSource14作为参数。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//配置AFIO数据选择器，选择我们想要的中断引脚</span><br><span class="line">GPIO_EXTILineConfig(GPIO_PortSourceGPIOB,GPIO_PinSource14);</span><br></pre></td></tr></table></figure>
+
+<p> 第四步，配置EXTI</p>
+<p>首先介绍函数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">* 根据EXTI_InitStruct中指定的参数初始化EXTI外设</span><br><span class="line">* 参数 EXTI_InitStruct:指向EXTI_InitTypeDef结构体的指针其中包含EXTI外设的配置信息。</span><br><span class="line">* 返回值：无</span><br><span class="line">*/</span><br><span class="line">void EXTI_Init(EXTI_InitTypeDef* EXTI_InitStruct);</span><br></pre></td></tr></table></figure>
+
+<p>我们需要用EXTI_Init()函数，参数就是EXTI初始化结构体。</p>
+<p>我们看一下这个结构体的定义，它有四个成员</p>
+<ul>
+<li>EXTI_Line，指定中断线</li>
+<li>EXTI_LineCmd，指定选择的中断线的新状态（enable或者disable）</li>
+<li>EXTI_Mode， 外部中断线模式（中断模式或者事件模式）</li>
+<li>EXTI_Trigger，触发中断的边沿（上升沿、下降沿、双边沿）</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">/* </span><br><span class="line">* EXTI Init结构定义</span><br><span class="line">*/</span><br><span class="line">类型定义结构体</span><br><span class="line">&#123;</span><br><span class="line">    uint32_t EXTI_Line;//指定要启用或禁用的外部中断线。</span><br><span class="line">    EXTIMode_TypeDef EXTI_Mode;//指定外部中断线的模式。</span><br><span class="line">    EXTITrigger_TypeDef EXTI_Trigger;//指定EXTI线路的触发边沿。</span><br><span class="line">    FunctionalState EXTI_LineCmd;//指定所选EXTI行的新状态。可设置为ENABLE或DISABLE</span><br><span class="line">&#125;EXTI_InitTypeDef;</span><br></pre></td></tr></table></figure>
+
+<p>我们选择PB14所在的第14号线路，使能中断，使用中断模式，下降沿触发，代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">EXTI_InitTypeDef EXTI_InitStructure;</span><br><span class="line">EXTI_InitStructure.EXTI_Line = EXTI_Line14;//指定中断线</span><br><span class="line">EXTI_InitStructure.EXTI_LineCmd = ENABLE;//指定选择的中断线的新状态（enable或者disable）</span><br><span class="line">EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;//外部中断线模式（中断模式或者事件模式）</span><br><span class="line">EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling;//触发中断的边沿（上升沿、下降沿、双边沿）</span><br><span class="line">EXTI_Init(&amp;EXTI_InitStructure);</span><br></pre></td></tr></table></figure>
+
+<p>第五步，配置NVIC </p>
+<p>同样介绍几个函数：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* 配置优先级分组:抢占优先级和响应优先级。</span></span><br><span class="line"><span class="comment">* 参数 NVIC_PriorityGroup:优先级分组位长度。</span></span><br><span class="line"><span class="comment">*     该参数可以是以下值之一:</span></span><br><span class="line"><span class="comment">*        @arg NVIC_PriorityGroup_0: 0位抢占优先级，4位为响应优先级</span></span><br><span class="line"><span class="comment">*        @arg NVIC_PriorityGroup_1: 1位抢占优先级，3位为响应优先级</span></span><br><span class="line"><span class="comment">*        @arg NVIC_PriorityGroup_2: 2位抢占优先级，2位为响应优先级</span></span><br><span class="line"><span class="comment">*        @arg NVIC_PriorityGroup_3: 3位抢占优先级，1位为响应优先级</span></span><br><span class="line"><span class="comment">*        @arg NVIC_PriorityGroup_4: 4位抢占优先级</span></span><br><span class="line"><span class="comment">* 返回值：无</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">NVIC_PriorityGroupConfig</span><span class="params">(<span class="type">uint32_t</span> NVIC_PriorityGroup)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">* 根据NVIC_InitStruct中指定的参数初始化NVIC外设。</span><br><span class="line">* 参数 NVIC_InitStruct:指向NVIC_InitTypeDef结构体的指针其中包含指定的NVIC外设配置信息。</span><br><span class="line">* 返回值：无</span><br><span class="line">*/</span><br><span class="line">void NVIC_Init(NVIC_InitTypeDef* NVIC_InitStruct);</span><br></pre></td></tr></table></figure>
+
+<p>NVIC_Init()参数是结构体，它有四个成员</p>
+<ul>
+<li>NVIC_IRQChannel，指定中断通道</li>
+<li>NVIC_IRQChannelCmd，开启或者关闭指定的通道</li>
+<li>NVIC_IRQChannelPreemptionPriority，指定抢占优先级</li>
+<li>NVIC_IRQChannelSubPriority，指定响应优先级</li>
+</ul>
+<p>我们指定EXTI15_10_IRQn，因为中断15~10都在这个通道，然后使能开启通道，指定抢占优先级和响应优先级都是1。代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);//指定中断分组（几位抢占几位响应）</span><br><span class="line">	</span><br><span class="line">NVIC_InitTypeDef NVIC_InitStructure;</span><br><span class="line">NVIC_InitStructure.NVIC_IRQChannel = EXTI15_10_IRQn;//指定中断通道</span><br><span class="line">NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;//开启或者关闭指定的通道</span><br><span class="line">NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;//指定抢占优先级</span><br><span class="line">NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;//指定响应优先级</span><br><span class="line">NVIC_Init(&amp;NVIC_InitStructure);</span><br></pre></td></tr></table></figure>
+
+<p>自此，NVIC配置完成，外部中断信号从GPIO到AFIO再到EXTI，再到NVIC，最后通向CPU，这样才能让CPU由主程序跳转到中断程序执行。</p>
+<p>中断函数一般先进行中断标志位判断，确保是我们想要的中断源触发的这个函数，因为EXTI10~EXTI15都能进来，所以判断一下是不是我们想要的EXTI14进来的。利用EXTI_GetITStatus()，看标志位是否为SET（1），中断函数结束后，一定要调用清除中断标志位的函数，否则会一直申请中断程序不断响应中断从而卡死。中断函数中，执行CountSensor++，即中断一次计次加一。代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">void EXTI15_10_IRQHandler(void)</span><br><span class="line">&#123;</span><br><span class="line">	if(EXTI_GetITStatus(EXTI_Line14) == SET)</span><br><span class="line">	&#123;</span><br><span class="line">		CountSensor_count++;</span><br><span class="line">		EXTI_ClearITPendingBit(EXTI_Line14);//清除中断标志位</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</article>
+    
+    
+
+<ul class="trm-post-copyright">
+    <li class="trm-post-copyright-author">
+        <strong>本文作者：</strong>
+        Acesczlo
+    </li>
+    <li class="trm-post-copyright-link">
+        <strong>本文链接：</strong>
+        <a id="original-link" href="https://acesczlo.netlify.app/STM32入门-三/" title="STM32入门(三)">https://acesczlo.netlify.app/STM32入门-三/</a>
+    </li>
+    <li class="trm-post-copyright-license">
+        <strong>版权声明：</strong>
+        本博客所有文章除特别声明外，均默认采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 ">CC BY-NC-SA 4.0</a> 许可协议。
+    </li>
+</ul>
+
+
+</div>
+<div class="trm-post-next-prev row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            其他文章
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation">
+        <a href="/STM32%E5%85%A5%E9%97%A8-%E4%BA%8C/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <img alt="cover" class="no-fancybox" src="/img/block.png">
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" /categories/%E6%95%99%E7%A8%8B/">
+                    教程
+                </a>
+            </div>
+            <h5>
+                <a href="/STM32%E5%85%A5%E9%97%A8-%E4%BA%8C/" class="trm-anima-link">
+                    STM32入门(二)
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>25/04/19</li>
+                <li>20:20</li>
+                
+                    <li>1.4k</li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+    <div class="trm-card trm-scroll-animation comment-container">
+    <div id="tcomment"></div>
+</div>
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-footer-card trm-scroll-animation">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v7.3.0
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                主题 - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.2.4
+            </span>
+        </div>
+      
+
+    
+        <div class="trm-footer-item blog-run-long"></div>
+     
+
+     
+</footer>
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            
+
+    <div id="post-toc" class="trm-post-toc">
+      <div class="trm-post-toc-header">
+        目录导航
+				<span id="post-toc-top">
+					置顶
+				</span>
+      </div>
+      <div class="trm-post-toc-content">
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-2" title="中断系统"><a rel="nofollow" class="trm-toc-link" href="#中断系统"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">中断系统</span></a></li><li class="trm-toc-item trm-toc-level-2" title="STM32中断"><a rel="nofollow" class="trm-toc-link" href="#STM32中断"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">STM32中断</span></a></li><li class="trm-toc-item trm-toc-level-2" title="NVIC"><a rel="nofollow" class="trm-toc-link" href="#NVIC"><span class="trm-toc-number">3.</span> <span class="trm-toc-text">NVIC</span></a></li><li class="trm-toc-item trm-toc-level-2" title="EXTI"><a rel="nofollow" class="trm-toc-link" href="#EXTI"><span class="trm-toc-number">4.</span> <span class="trm-toc-text">EXTI</span></a></li><li class="trm-toc-item trm-toc-level-2" title="AFIO"><a rel="nofollow" class="trm-toc-link" href="#AFIO"><span class="trm-toc-number">5.</span> <span class="trm-toc-text">AFIO</span></a></li><li class="trm-toc-item trm-toc-level-2" title="配置外部中断"><a rel="nofollow" class="trm-toc-link" href="#配置外部中断"><span class="trm-toc-number">6.</span> <span class="trm-toc-text">配置外部中断</span></a></li></ol>
+      </div>
+    </div>
+
+            
+<div class="trm-fixed-container">
+    
+        <div class="trm-fixed-btn post-toc-btn" data-title="目录">
+            <i class="iconfont fas fa-th-list"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="阅读模式" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn hidden-md" data-title="单栏和双栏切换" onclick="asyncFun.switchSingleColumn()">
+            <i class="iconfont fas fa-arrows-alt-h"></i>
+        </div>
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="回到顶部">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+  </div>
+  <!-- app wrapper end -->
+
+  
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://npm.elemecdn.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+        <script src="/js/plugins/typing.js?v=2.2.4"></script>
+    
+
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+
+            
+<script src="https://npm.elemecdn.com/twikoo@1.6.7/dist/twikoo.all.min.js" data-swup-reload-script data-reset="true"></script>
+
+            <script data-swup-reload-script>
+                twikoo.init({
+                    ...{"enable":true,"envId":"https://acsczlo-twikoo.netlify.app/.netlify/functions/twikoo"},
+                    el:'#tcomment'
+                }).then(function () {
+                    let container = document.querySelector('body>.tk-admin-container')
+                    if(container) container.remove()
+                    document.body.append(document.querySelector('.tk-admin-container'))
+                });;
+            </script>
+
+        
+    
+
+		
+
+
+
+
+    <!-- Service Worker -->
+    
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=2.2.4"></script>
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+</body>
+
+</html>
