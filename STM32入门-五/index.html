@@ -7,18 +7,21 @@
 <meta name="full-screen" content="yes">
 <meta name="theme-color" content="#317EFB" />
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
-<meta name="description" content="ADC模数转换">
+<meta name="description" content="ADC 模数转换 ADC(Analog-Digital Converter) &emsp; 模拟-数字转换器  ADC 可以将引脚上连续变化的模拟电压转换为内存中存储的数字变量，建立模拟电路到数字电路的桥梁  模拟量：可以在一个连续的范围内变化，例如温度可以是 25.1°C、25.2°C 等，具有无限个可能值。  数字量：只能取有限的离散值，例如开关的开（1）和关（0）状态，或者数字传感器读取的值">
 <meta property="og:type" content="article">
 <meta property="og:title" content="STM32入门(五)">
 <meta property="og:url" content="https://acesczlo.netlify.app/STM32%E5%85%A5%E9%97%A8-%E4%BA%94/index.html">
 <meta property="og:site_name" content="Acesczlo小站">
-<meta property="og:description" content="ADC模数转换">
+<meta property="og:description" content="ADC 模数转换 ADC(Analog-Digital Converter) &emsp; 模拟-数字转换器  ADC 可以将引脚上连续变化的模拟电压转换为内存中存储的数字变量，建立模拟电路到数字电路的桥梁  模拟量：可以在一个连续的范围内变化，例如温度可以是 25.1°C、25.2°C 等，具有无限个可能值。  数字量：只能取有限的离散值，例如开关的开（1）和关（0）状态，或者数字传感器读取的值">
 <meta property="og:locale">
+<meta property="og:image" content="https://acesczlo.netlify.app/404.jpg">
+<meta property="og:image" content="https://acesczlo.netlify.app/404.jpg">
 <meta property="article:published_time" content="2025-04-24T04:38:47.000Z">
-<meta property="article:modified_time" content="2025-04-24T07:48:47.290Z">
+<meta property="article:modified_time" content="2025-05-05T07:30:02.610Z">
 <meta property="article:author" content="Acesczlo">
 <meta property="article:tag" content="-stm32">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://acesczlo.netlify.app/404.jpg">
 
 
 <title >STM32入门(五)</title>
@@ -64,7 +67,7 @@
 
 <!-- Variable -->
 <script>window.ASYNC_CONFIG = {"hostname":"acesczlo.netlify.app","author":"Acesczlo","root":"/","typed_text":["Developer"],"theme_version":"2.2.4","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"/img/favicon.svg","icon16":"/img/favicon.svg","icon32":"/img/favicon.svg","apple_touch_icon":"/img/favicon.svg","webmanifest":"/site.webmanifest","visibilitychange":true,"hidden":"failure.ico","show_text":"(/≧▽≦/)咦！又好了！","hide_text":"(●—●)喔哟，崩溃啦！"},"i18n":{"placeholder":"搜索文章...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","sticky":"置顶","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://npm.elemecdn.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":false,"title":"default","height_limit":200},"toc":{"post_title":false},"live_time":{"start_time":"02/25/2025 17:00:00","prefix":"博客已萌萌哒运行 undefined 天"},"danmu":{"enable":false,"el":".trm-banner"}};</script>
-<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2025-04-24 15:48:47"};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2025-05-05 15:30:02"};</script>
 
 <!-- Theme mode css -->
 <link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.2.4" id="trm-switch-style">
@@ -375,7 +378,148 @@
 </div>
 <div class="trm-card ">
     <article id="article-container" class="trm-publication">
-    <h2 id="ADC模数转换"><a href="#ADC模数转换" class="headerlink" title="ADC模数转换"></a>ADC模数转换</h2>
+    <h2 id="ADC-模数转换"><a href="#ADC-模数转换" class="headerlink" title="ADC 模数转换"></a>ADC 模数转换</h2><ul>
+<li><p>ADC(Analog-Digital Converter) &emsp; 模拟-数字转换器</p>
+</li>
+<li><p>ADC 可以将引脚上连续变化的模拟电压转换为内存中存储的数字变量，建立模拟电路到数字电路的桥梁</p>
+<ul>
+<li><p><strong>模拟量</strong>：可以在一个连续的范围内变化，例如温度可以是 25.1°C、25.2°C 等，具有无限个可能值。</p>
+</li>
+<li><p><strong>数字量</strong>：只能取有限的离散值，例如开关的开（1）和关（0）状态，或者数字传感器读取的值。</p>
+</li>
+</ul>
+</li>
+<li><p>12 位逐次逼近型 ADC，1us 转换时间</p>
+</li>
+<li><p>输入电压范围：0-3.3V，转换结果范围：0-4095</p>
+</li>
+<li><p>18 个输入通道，可测量 16 个外部和 2 个内部信号源</p>
+</li>
+<li><p>规则组和注入组两个转换单元</p>
+</li>
+<li><p>模拟看门狗自动监测输入电压范围</p>
+</li>
+<li><p>STM32F103C8T6 ADC 资源：ADC1、ADC2，10 个外部输入通道</p>
+</li>
+</ul>
+<p><strong>ADC 基本结构</strong>:</p>
+<p>  <img src="https://raw.githubusercontent.com/Acesczlo/My_blog_Pic/main/20250505115431846.png" alt="288b996094234e739eeab7ccb54489cc"  data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/404.jpg"'></p>
+<p><strong>ADC 转换模式</strong>： </p>
+<ul>
+<li>单次转换模式（Single Conversion Mode）：ADC 在每次触发时只进行一次转换。适用于低速、低功耗的应用。</li>
+<li>连续转换模式（Continuous Conversion Mode）：ADC 持续进行转换，适用于需要实时监测的应用，如信号处理和实时数据采集。</li>
+<li>扫描模式（Scan Mode）：ADC 可以在多个通道间进行扫描，每个通道依次进行转换，适合多通道数据采集。</li>
+<li>间断模式（Discontinous mode）：在扫描过程中每隔几个转换就暂停一次，需要再次触发才能继续。</li>
+<li>触发模式（Triggered Mode）：转换过程由外部信号触发，可以是定时器、GPIO 引脚等，适合需要同步数据采集的场景。</li>
+<li>差分模式（Differential Mode）：ADC 测量两个输入信号的差值，提供更高的噪声抗性，适用于高精度测量。</li>
+<li>伪差分模式（Pseudo-Differential Mode）：其中一个输入端连接到地，另一端测量信号，适合简单的差分测量。</li>
+</ul>
+<p><strong>ADC 通道组</strong>：</p>
+<ul>
+<li><p>规则通道组（Regular Channel Group）</p>
+<ul>
+<li><p>定义：规则通道组是 ADC 的主要通道组，用于常规的信号采集。它通常用于周期性采集的传感器信号。</p>
+</li>
+<li><p>特点：</p>
+<ul>
+<li>持续转换：在连续转换模式下，规则通道组可以在多个通道间进行循环采样。</li>
+<li>优先级低：相较于注入通道组，规则通道组的优先级较低，通常用于常规数据的采集。</li>
+<li>数据存储：转换结果通常存储在一个数据寄存器中，等待主程序读取。</li>
+<li>触发方式：可以通过定时器、外部事件等方式触发采样。</li>
+</ul>
+</li>
+<li><p>适用场景：适用于需要实时采集且对响应时间要求不高的应用，如环境监测、温度传感器等。</p>
+</li>
+</ul>
+</li>
+<li><p>注入通道组（Injected Channel Group）</p>
+<ul>
+<li><p>定义：注入通道组用于优先级更高的信号采集，通常用于突发事件或特定条件下的快速采样。</p>
+</li>
+<li><p>特点：</p>
+<ul>
+<li>高优先级：注入通道组具有较高的优先级，能够在任何时候中断规则通道组的采样进行数据采集。</li>
+<li>快速响应：适合快速响应的应用，如检测瞬时信号变化、故障检测等。</li>
+<li>独立触发：可以独立于规则通道组进行触发，支持多种触发源（如外部引脚、内部事件等）。</li>
+<li>多个通道：通常可以配置多个注入通道，进行快速的信号采样。</li>
+</ul>
+</li>
+<li><p>适用场景：适用于需要在特定条件下迅速采集信号的应用，如运动控制、脉冲信号采集等。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>ADC 对应通道</strong>：</p>
+<p><img src="https://raw.githubusercontent.com/Acesczlo/My_blog_Pic/main/20250505120226295.png" alt="e2e0fd4633aa460392b80b90840b46d4"  data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/404.jpg"'></p>
+<p><strong>AD转换的步骤</strong>：采样，保持，量化，编码</p>
+<p><strong>STM32F103ADC 时钟和采样时间</strong>：</p>
+<ul>
+<li>时钟源</li>
+</ul>
+<p>&emsp;&emsp;STM32F103 的 ADC 通常由 APB2 总线时钟提供时钟。ADC 的最大工作频率为 14 MHz（ADCCLK&#x3D;14MHz）。</p>
+<ul>
+<li>ADC 时钟设置</li>
+</ul>
+<p>&emsp;&emsp;ADC 时钟的配置可以通过配置系统时钟（HSE、HSI 或 PLL）来实现。通常在系统初始化时设置。<br>&emsp;&emsp;在 ADC 模块中，可以通过寄存器设置 ADC 的预分频系数，以确保 ADC 时钟不超过最大工作频率。</p>
+<ul>
+<li>采样时间配置</li>
+</ul>
+<p>&emsp;&emsp;STM32F103 的 ADC 允许用户根据输入信号的特性选择不同的采样时间。可选的采样时间设置包括：</p>
+<p>&emsp;&emsp;&emsp;1.5 个 ADC 时钟周期<br>&emsp;&emsp;&emsp;7.5 个 ADC 时钟周期<br>&emsp;&emsp;&emsp;13.5 个 ADC 时钟周期<br>&emsp;&emsp;&emsp;28.5 个 ADC 时钟周期<br>&emsp;&emsp;&emsp;41.5 个 ADC 时钟周期<br>&emsp;&emsp;&emsp;55.5 个 ADC 时钟周期<br>&emsp;&emsp;&emsp;71.5 个 ADC 时钟周期<br>&emsp;&emsp;&emsp;239.5 个 ADC 时钟周期</p>
+<p>&emsp;&emsp;通过设置 ADC 寄存器中的采样时间字段，可以选择合适的采样时间。例如，对于快速变化的信号，可能选择较短的采样时间；而对于慢变化的信号，较长的采样时间可以提高测量的准确性。</p>
+<ul>
+<li>采样时间与转换时间的关系</li>
+</ul>
+<p>&emsp;&emsp;采样时间加上转换时间组成了每次 ADC 转换的总时间。转换时间对于 STM32F103 的 ADC 是固定的，大约为 12.5 个 ADC 时钟周期。</p>
+<p>&emsp;&emsp;因此，总的转换时间公式可以表示为：总时间 &#x3D; 采样时间+12.5xADC 时钟周期</p>
+<h2 id="AD应用"><a href="#AD应用" class="headerlink" title="AD应用"></a>AD应用</h2><p>首先介绍几个ADC库函数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">* 配置ADC时钟(ADCCLK)。可以对APB2的72MHz时钟选择2、4、6、8分频输出到ADCCLK</span><br><span class="line">* 参数 RCC_PCLK2:定义ADC时钟分频器。</span><br><span class="line">* 返回值：无</span><br><span class="line">*/</span><br><span class="line">void RCC_ADCCLKConfig(uint32_t RCC_PCLK2);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">* 启用或禁用指定的ADC外设。</span><br><span class="line">* 参数1 ADCx:其中x可为1、2或3，选择ADC外设。</span><br><span class="line">* 参数2 NewState: ADCx外设的新状态。取值为:ENABLE或DISABLE。</span><br><span class="line">* 返回值：无</span><br><span class="line">*/</span><br><span class="line">void ADC_Cmd(ADC_TypeDef* ADCx, FunctionalState NewState);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/* 用于控制校准的函数，ADC初始化完之后依次调用 */</span><br><span class="line">void ADC_ResetCalibration(ADC_TypeDef* ADCx);//复位校准</span><br><span class="line">FlagStatus ADC_GetResetCalibrationStatus(ADC_TypeDef* ADCx);//获取复位校准状态</span><br><span class="line">void ADC_StartCalibration(ADC_TypeDef* ADCx);//开始校准</span><br><span class="line">FlagStatus ADC_GetCalibrationStatus(ADC_TypeDef* ADCx);//获取开始校准状态</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">* 启用或禁用所选ADC软件触发转换。</span><br><span class="line">* 参数1 ADCx:其中x可为1、2或3，选择ADC外设。</span><br><span class="line">* 参数2 NewState:所选ADC软件启动转换的新状态。取值包括:ENABLE或DISABLE。</span><br><span class="line">* 返回值：无</span><br><span class="line">*/</span><br><span class="line">void ADC_SoftwareStartConvCmd(ADC_TypeDef* ADCx, FunctionalState NewState);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">* 检查是否设置了指定的ADC标志。判断是否转换结束</span><br><span class="line">* 参数 ADCx:其中x可为1、2或3，选择ADC外设。</span><br><span class="line">* ADC_FLAG:要检查的标志位。</span><br><span class="line">* 返回值：ADC_FLAG的新状态(SET或RESET)。</span><br><span class="line">*/</span><br><span class="line">FlagStatus ADC_GetFlagStatus(ADC_TypeDef* ADCx, uint8_t ADC_FLAG);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">* ADC规则组通道配置。</span><br><span class="line">* 参数1 ADCx:其中x可为1、2或3，选择ADC外设。</span><br><span class="line">* 参数2 ADC_Channel:要配置的ADC通道。</span><br><span class="line">* 参数3 Rank:序列几的位置。取值范围为1 ~ 16。</span><br><span class="line">* 参数4 ADC_SampleTime:为所选通道设置的采样时间值。</span><br><span class="line">* 返回值：无</span><br><span class="line">*/</span><br><span class="line">void ADC_RegularChannelConfig(ADC_TypeDef* ADCx, uint8_t ADC_Channel, uint8_t Rank, uint8_t ADC_SampleTime);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">* 返回常规通道的最后一次ADCx转换结果数据。</span><br><span class="line">* 参数 ADCx:其中x可为1、2或3，选择ADC外设。</span><br><span class="line">*返回值：转换的数据值。</span><br><span class="line">*/</span><br><span class="line">uint16_t ADC_GetConversionValue(ADC_TypeDef* ADCx);</span><br></pre></td></tr></table></figure>
+
+<p>第一步，RCC开启时钟。ADC都是APB2上的设备所以使用APB2外设时钟控制函数。然后我们还使用了PA0口，所以再开启GPIOA时钟。接着不要忘了ADCCLK的配置。我们选择6分频，分频之后ADCCLK&#x3D;72MHz&#x2F;6 &#x3D; 12MHz。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/* 第一步开启RCC开启时钟 */</span><br><span class="line">RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC1,ENABLE);</span><br><span class="line">RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA,ENABLE);</span><br><span class="line">	</span><br><span class="line">RCC_ADCCLKConfig(RCC_PCLK2_Div6);//配置ADCCLK</span><br></pre></td></tr></table></figure>
+
+<p>第二步，配置GPIO。选择模拟输入模式。我们使用PA0，所以初始化GPIO_Pin_0。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/* 第二步配置GPIO */</span><br><span class="line">GPIO_InitTypeDef GPIO_InitStructure;</span><br><span class="line">GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AIN;//模拟输入</span><br><span class="line">GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0;</span><br><span class="line">GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;</span><br><span class="line">GPIO_Init(GPIOA,&amp;GPIO_InitStructure);</span><br></pre></td></tr></table></figure>
+
+<p>第三步，选择规则组的输入通道。我们使用ADC_RegularChannelConfig()函数。第三个参数规则组序列器里的次序，必须在1-16，对应规则组的16个序列。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/* 第三步选择规则组输入通道 */</span><br><span class="line">ADC_RegularChannelConfig(ADC1,ADC_Channel_0,1,ADC_SampleTime_55Cycles5);</span><br></pre></td></tr></table></figure>
+
+<p>第四步，用结构体初始化ADC。利用ADC_Init()函数。第一个参数给ADC1，第二个参数是结构体，它有6个成员：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ADC_ModeADC，工作模式（独立模式还是双ADC模式）</span><br><span class="line">ADC_DataAlign，数据对齐（左对齐、右对齐）</span><br><span class="line">ADC_ExternalTrigConv，外部触发转换选择，就是触发控制的触发源</span><br><span class="line">ADC_ContinuousConvMode，连续转换模式（选择连续转换还是单次转换）</span><br><span class="line">ADC_ScanConvMode，扫描转换模式（选择扫描模式还是非扫描模式）</span><br><span class="line">ADC_NbrOfChannel，通道数目，指定在扫描模式下总共会用到几个通道</span><br></pre></td></tr></table></figure>
+
+
+<p>模式我们选择独立模式；数据对齐方式根据前文我们选右对齐；本节代码我们使用软件触发，外部触发源我们选择None；我们使用单次转换,非扫描模式；通道数为1。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">/* 第四步配置ADC转换器 */</span><br><span class="line">ADC_InitTypeDef ADC_InitStructure;</span><br><span class="line">ADC_InitStructure.ADC_Mode = ADC_Mode_Independent;//ADC工作模式</span><br><span class="line">ADC_InitStructure.ADC_DataAlign = ADC_DataAlign_Right;//数据对齐</span><br><span class="line">ADC_InitStructure.ADC_ExternalTrigConv = ADC_ExternalTrigConv_None;//外部触发转换选择，就是触发控制的触发源</span><br><span class="line">ADC_InitStructure.ADC_ContinuousConvMode = DISABLE;//连续转换模式（选择连续转换还是单次转换）</span><br><span class="line">ADC_InitStructure.ADC_ScanConvMode = DISABLE;//扫描转换模式（选择扫描模式还是非扫描模式）</span><br><span class="line">ADC_InitStructure.ADC_NbrOfChannel = 1;//通道数目，指定在扫描模式下总共会用到几个通道</span><br><span class="line">ADC_Init(ADC1,&amp;ADC_InitStructure);</span><br><span class="line">到这里ADC整体结构就配置完成了。之后，中断和模拟看门狗你如果需要的话可以再继续配置。我们就暂时不使用了。</span><br></pre></td></tr></table></figure>
+
+<p>第五步，开启ADC电源，并校准。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 第五步开启ADC并进行校准 */</span></span><br><span class="line">ADC_Cmd(ADC1,ENABLE);</span><br><span class="line">ADC_ResetCalibration(ADC1);<span class="comment">//复位校准</span></span><br><span class="line"><span class="keyword">while</span> (ADC_GetResetCalibrationStatus(ADC1) == SET);<span class="comment">//等待返回复位校准的状态</span></span><br><span class="line">ADC_StartCalibration(ADC1);<span class="comment">//开启校准</span></span><br><span class="line"><span class="keyword">while</span> (ADC_GetCalibrationStatus(ADC1) == SET);<span class="comment">//等待校准完成</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这样ADC就处于准备就绪的状态了，我们想启动转换获取结果，就再写一个函数，流程是：首先软件触发转换，然后等待转换完成，也就是等待EOC标志位置1，最后读取ADC寄存器的值。在ADC_GetFlagStatus()里选择规则组转换完成标志位ADC_FLAG_EOC。当标志位为0表示转换未完成，为1表示转换完成，使用EOC标志位&#x3D;&#x3D;RESET时表示为完成转换，执行空循环等待，转换完成后由硬件自动置1跳出循环。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">uint16_t AD_GetValue(void)</span><br><span class="line">&#123;</span><br><span class="line">	ADC_SoftwareStartConvCmd(ADC1,ENABLE);//触发转换</span><br><span class="line">	while (ADC_GetFlagStatus(ADC1,ADC_FLAG_EOC) == RESET);//等待转换完成</span><br><span class="line">	return ADC_GetConversionValue(ADC1);//获取AD转换的结果，自动清除标志位我们不需要手动清除</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果使用连续转换,非扫描模式，只需设置：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ADC_InitStructure.ADC_ContinuousConvMode = ENABLE;//连续转换模式（选择连续转换还是单次转换）</span><br></pre></td></tr></table></figure>
+
+<p>然后只需触发一次，将软件触发函数置于校准之后，无需判断标志位，AD_GetValue()改为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">uint16_t AD_GetValue(void)</span><br><span class="line">&#123;</span><br><span class="line">	return ADC_GetConversionValue(ADC1);//获取AD转换的结果，自动清除标志位我们不需要手动清除</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用多通道可以删除初始化中的选择规则组的输入通道函数，然后在获取函数里实现：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">uint16_t AD_GetValue(uin8_t ADC_Channel)</span><br><span class="line">&#123;</span><br><span class="line">	/*选择规则组输入通道 */</span><br><span class="line">	ADC_RegularChannelConfig(ADC1,ADC_Channel,1,ADC_SampleTime_55Cycles5);</span><br><span class="line">	</span><br><span class="line">	ADC_SoftwareStartConvCmd(ADC1,ENABLE);//触发转换</span><br><span class="line">	while (ADC_GetFlagStatus(ADC1,ADC_FLAG_EOC) == RESET);//等待转换完成</span><br><span class="line">	return ADC_GetConversionValue(ADC1);//获取AD转换的结果，自动清除标志位我们不需要手动清除</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>DMA及扫描模式先按下不表，自己学习吧</p>
+
 </article>
     
     
@@ -498,7 +642,7 @@
 				</span>
       </div>
       <div class="trm-post-toc-content">
-        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-2" title="ADC模数转换"><a rel="nofollow" class="trm-toc-link" href="#ADC模数转换"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">ADC模数转换</span></a></li></ol>
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-2" title="ADC 模数转换"><a rel="nofollow" class="trm-toc-link" href="#ADC-模数转换"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">ADC 模数转换</span></a></li><li class="trm-toc-item trm-toc-level-2" title="AD应用"><a rel="nofollow" class="trm-toc-link" href="#AD应用"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">AD应用</span></a></li></ol>
       </div>
     </div>
 
