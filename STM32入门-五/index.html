@@ -7,17 +7,18 @@
 <meta name="full-screen" content="yes">
 <meta name="theme-color" content="#317EFB" />
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
-<meta name="description" content="ADC 模数转换 ADC(Analog-Digital Converter) &emsp; 模拟-数字转换器  ADC 可以将引脚上连续变化的模拟电压转换为内存中存储的数字变量，建立模拟电路到数字电路的桥梁  模拟量：可以在一个连续的范围内变化，例如温度可以是 25.1°C、25.2°C 等，具有无限个可能值。  数字量：只能取有限的离散值，例如开关的开（1）和关（0）状态，或者数字传感器读取的值">
+<meta name="description" content="ADC 模数转换 ADC(Analog-Digital Converter) &emsp; 模拟-数字转换器  ADC 可以将引脚上连续变化的模拟电压转换为内存中存储的数字变量，建立模拟电路到数字电路的桥梁  模拟量：可以在一个连续的范围内变化，例如温度可以是 25.1°C、25.2°C 等，具有无限个可能值。  数字量：只能取有限的离散值，例如开关的开（1）和关（0）状态，或者数字传感器读取的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="STM32入门(五)">
 <meta property="og:url" content="https://acesczlo.netlify.app/STM32%E5%85%A5%E9%97%A8-%E4%BA%94/index.html">
 <meta property="og:site_name" content="Acesczlo小站">
-<meta property="og:description" content="ADC 模数转换 ADC(Analog-Digital Converter) &emsp; 模拟-数字转换器  ADC 可以将引脚上连续变化的模拟电压转换为内存中存储的数字变量，建立模拟电路到数字电路的桥梁  模拟量：可以在一个连续的范围内变化，例如温度可以是 25.1°C、25.2°C 等，具有无限个可能值。  数字量：只能取有限的离散值，例如开关的开（1）和关（0）状态，或者数字传感器读取的值">
+<meta property="og:description" content="ADC 模数转换 ADC(Analog-Digital Converter) &emsp; 模拟-数字转换器  ADC 可以将引脚上连续变化的模拟电压转换为内存中存储的数字变量，建立模拟电路到数字电路的桥梁  模拟量：可以在一个连续的范围内变化，例如温度可以是 25.1°C、25.2°C 等，具有无限个可能值。  数字量：只能取有限的离散值，例如开关的开（1）和关（0）状态，或者数字传感器读取的">
 <meta property="og:locale">
 <meta property="og:image" content="https://acesczlo.netlify.app/404.jpg">
 <meta property="og:image" content="https://acesczlo.netlify.app/404.jpg">
+<meta property="og:image" content="https://acesczlo.netlify.app/404.jpg">
 <meta property="article:published_time" content="2025-04-24T04:38:47.000Z">
-<meta property="article:modified_time" content="2025-05-05T07:30:02.610Z">
+<meta property="article:modified_time" content="2025-05-06T03:26:34.297Z">
 <meta property="article:author" content="Acesczlo">
 <meta property="article:tag" content="-stm32">
 <meta name="twitter:card" content="summary">
@@ -67,7 +68,7 @@
 
 <!-- Variable -->
 <script>window.ASYNC_CONFIG = {"hostname":"acesczlo.netlify.app","author":"Acesczlo","root":"/","typed_text":["Developer"],"theme_version":"2.2.4","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"/img/favicon.svg","icon16":"/img/favicon.svg","icon32":"/img/favicon.svg","apple_touch_icon":"/img/favicon.svg","webmanifest":"/site.webmanifest","visibilitychange":true,"hidden":"failure.ico","show_text":"(/≧▽≦/)咦！又好了！","hide_text":"(●—●)喔哟，崩溃啦！"},"i18n":{"placeholder":"搜索文章...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","sticky":"置顶","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://npm.elemecdn.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":false,"title":"default","height_limit":200},"toc":{"post_title":false},"live_time":{"start_time":"02/25/2025 17:00:00","prefix":"博客已萌萌哒运行 undefined 天"},"danmu":{"enable":false,"el":".trm-banner"}};</script>
-<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2025-05-05 15:30:02"};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2025-05-06 11:26:34"};</script>
 
 <!-- Theme mode css -->
 <link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.2.4" id="trm-switch-style">
@@ -378,7 +379,8 @@
 </div>
 <div class="trm-card ">
     <article id="article-container" class="trm-publication">
-    <h2 id="ADC-模数转换"><a href="#ADC-模数转换" class="headerlink" title="ADC 模数转换"></a>ADC 模数转换</h2><ul>
+    <p><img src="https://raw.githubusercontent.com/Acesczlo/My_blog_Pic/main/20250506112522725.jpg" alt="[lab.magiconch.com][福音戰士標題生成器]-1746501815233"  data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/404.jpg"'></p>
+<h2 id="ADC-模数转换"><a href="#ADC-模数转换" class="headerlink" title="ADC 模数转换"></a>ADC 模数转换</h2><ul>
 <li><p>ADC(Analog-Digital Converter) &emsp; 模拟-数字转换器</p>
 </li>
 <li><p>ADC 可以将引脚上连续变化的模拟电压转换为内存中存储的数字变量，建立模拟电路到数字电路的桥梁</p>
